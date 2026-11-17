@@ -323,8 +323,9 @@ p { margin: 0 0 1rem; }
   background: rgba(16, 17, 18, .72);
 }
 .band-photo .wrap { position: relative; z-index: 1; }
-.band-photo h2, .band-photo h3 { color: #fff; }
-.band-photo p, .band-photo .eyebrow { color: #c8c9cb; }
+.band-photo h1, .band-photo h2, .band-photo h3, .band-photo h4 { color: #fff; }
+.band-photo p, .band-photo .eyebrow, .band-photo .muted, .band-photo li { color: #c8c9cb; }
+.band-forest .muted, .band-navy .muted { color: #a3a6aa; }
 
 /* Service / area cards */
 .card-grid, .area-grid, .step-grid {
@@ -398,6 +399,10 @@ p { margin: 0 0 1rem; }
 .faq-item h3 { margin: 0; font-size: 18px; letter-spacing: -.02em; }
 .faq-item button {
   width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
   text-align: left;
   background: none;
   border: 0;
@@ -407,8 +412,35 @@ p { margin: 0 0 1rem; }
   cursor: pointer;
   color: var(--ink);
 }
+.faq-item button::after {
+  content: "";
+  flex: none;
+  width: 14px;
+  height: 14px;
+  background:
+    linear-gradient(currentColor, currentColor) center / 14px 1.5px no-repeat,
+    linear-gradient(currentColor, currentColor) center / 1.5px 14px no-repeat;
+}
+.faq-item.is-open button::after {
+  background: linear-gradient(currentColor, currentColor) center / 14px 1.5px no-repeat;
+}
 .faq-item .answer { padding: 0 0 22px; color: var(--mut); display: none; }
 .faq-item.is-open .answer { display: block; }
+.faq-item .answer a { border-bottom: 1px solid currentColor; }
+
+/* Light type on any dark band, including FAQ */
+:is(.band-photo, .band-forest, .band-navy) .muted { color: #c8c9cb; }
+:is(.band-photo, .band-forest, .band-navy) .faq-item {
+  border-color: rgba(255,255,255,.4);
+}
+:is(.band-photo, .band-forest, .band-navy) .faq-item button { color: #fff; }
+:is(.band-photo, .band-forest, .band-navy) .faq-item .answer { color: rgba(255,255,255,.86); }
+:is(.band-photo, .band-forest, .band-navy) a:not(.btn),
+.hero a:not(.btn),
+.page-hero a:not(.btn) {
+  color: #fff;
+  border-bottom-color: rgba(255,255,255,.7);
+}
 
 /* Quote / form */
 .quote-grid {
