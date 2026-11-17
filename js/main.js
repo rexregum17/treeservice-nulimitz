@@ -32,7 +32,7 @@
       if (status) {
         status.classList.add("is-visible");
         status.textContent =
-          "The form is not connected yet. FORM_ENDPOINT_PLACEHOLDER needs to be replaced when a local company rents this site. Please use the phone placeholder for now, or wait until a renter is assigned.";
+          "The form is not connected yet. FORM_ENDPOINT_PLACEHOLDER needs to be replaced when a local company rents this site.";
       }
     });
   }
